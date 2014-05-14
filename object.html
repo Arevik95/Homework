@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<script>
+
+var accident={
+date:"March 14,2014",
+transportation:["Volvo","BMW","Mercedes"],
+injured:7,
+reason:"The accident happened because the driver of BMW was drunk.",
+toString:function()
+{
+console.log("Crash happened on "+this.date+".Reason:"+this.reason);
+},
+hasInfo:function(info)
+{
+if(info==this.date || info==this.reason)
+return true;
+for(var i=0;i<this.transportation.length;i++)
+    if(info==transportation[i])
+	return true;
+return false;
+},
+
+isValid:function(tran)
+{
+for(var i=0;i<this.transportation.length;i++)
+    if(tran==this.transportation[i])
+	return true;
+	return false;
+}
+
+};
+
+var a_accident=Object.create(accident);
+a_accident.altitude=2000; 
+a_accident.toString=function()
+{
+console.log("Crash happened on "+this.date+".Reason:"+this.reason+"Altitude "+this.altitude);
+};
+a_accident.hasInfo=function(info)
+{
+if(info==this.date || info==this.reason || info==this.altitude)
+return true;
+for(var i=0;i<this.transportation.length;i++)
+    if(info==this.transportation[i])
+	return true;
+return false;
+};
+a_accident.toString=function()
+{
+console.log("Crash happened on "+this.date+".Reason:"+this.reason+"Altitude "+this.altitude);
+};
+
+
+ 
+var air_accident=Object.create(a_accident);
+air_accident.reason="The accident happened because the pilot of Boeing fell asleep.";
+air_accident.transportation=["Boeing 737" ,"Airbus A319"];  
+air_accident.airline="Alitalia";
+air_accident.toString=function()
+{
+console.log("Crash happened on "+this.date+".Reason:"+this.reason+"Altitude:"+this.altitude+" Airline:"+this.airline);
+};
+
+
+  
+var av_accident=Object.create(air_accident);
+av_accident.transportation=["MIG-29","MIG-31","AH-64"];  
+av_accident.country="Russia";
+av_accident.conflict=["Russia","USA","Ukraine"];
+av_accident.toString=function()
+{
+console.log("Crash happened on "+this.date+".Reason:"+this.reason+"Altitude:"+this.altitude+" Country:"+this.country);
+};
+av_accident.hasInfo=function(info)
+{
+if(info==this.date || info==this.reason || info==this.altitude || info==this.country)
+return true;
+for(var i=0;i<this.transportation.length;i++)
+    if(info==this.transportation[i])
+	return true;
+return false;
+};
+</script>
+
+
+</body>
+</html>
